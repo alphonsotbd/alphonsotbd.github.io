@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alphonsotbd.github.io/sitemap.xml
