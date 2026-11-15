@@ -11,9 +11,10 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://alphonsotbd.github.io/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=20261115-project-media">
+    <link rel="stylesheet" href="/styles.css?v=20261115-air-motion">
 
     <script src="/navigation.js?v=20261115-6" defer></script>
+    <script src="/air-monitoring.js?v=20261115-air-motion" defer></script>
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alphonsotbd.github.io/">
@@ -480,24 +481,32 @@
           </div>
         </div>
 
-        <div class="air-console" role="img" aria-label="Illustration of the four prototype alert states">
+        <div class="air-console" role="group" aria-label="Illustration of the four prototype alert states" data-air-state="safe">
           <div class="console-top">
-            <span>PROTOTYPE DISPLAY STATES</span>
+            <span>PROTOTYPE DISPLAY DEMO</span>
             <b>4 INDICATORS</b>
           </div>
           <div class="console-grid">
-            <div class="sensor-orb">
-              <div class="sensor-core"><span>AIR</span><strong>STATUS</strong></div>
-              <div class="sensor-ring one"></div>
-              <div class="sensor-ring two"></div>
-              <div class="sensor-node node-a"></div>
-              <div class="sensor-node node-b"></div>
+            <div class="sensor-orb" aria-hidden="true">
+              <div class="sensor-core"><span>AIR QUALITY</span><strong>SAFE</strong></div>
+              <div class="sensor-ring one">
+                <div class="sensor-track">
+                  <span class="sensor-node green"></span>
+                  <span class="sensor-node yellow"></span>
+                </div>
+              </div>
+              <div class="sensor-ring two">
+                <div class="sensor-track">
+                  <span class="sensor-node orange"></span>
+                  <span class="sensor-node red"></span>
+                </div>
+              </div>
             </div>
             <div class="state-list">
-              <div class="state green"><i></i><span><b>SAFE</b>Air safe · Door closed</span></div>
-              <div class="state yellow"><i></i><span><b>CAUTION</b>Slightly unsafe · Door closed</span></div>
-              <div class="state orange"><i></i><span><b>VENTILATE</b>Slightly unsafe · Door open</span></div>
-              <div class="state red"><i></i><span><b>ALERT</b>Very unsafe · Automatic buzzer</span></div>
+              <div class="state green" data-air-mode="safe"><i></i><span><b>SAFE</b>Air safe · Door closed</span></div>
+              <div class="state yellow" data-air-mode="caution"><i></i><span><b>CAUTION</b>Slightly unsafe · Door closed</span></div>
+              <div class="state orange" data-air-mode="ventilate"><i></i><span><b>VENTILATE</b>Slightly unsafe · Door open</span></div>
+              <div class="state red" data-air-mode="alert"><i></i><span><b>ALERT</b>Very unsafe · Automatic buzzer</span></div>
             </div>
           </div>
           <div class="console-flow"><span>Air + door sensors</span><b>→</b><span>Microcontroller</span><b>→</b><span>SQL database</span><b>→</b><span>Web view</span></div>
