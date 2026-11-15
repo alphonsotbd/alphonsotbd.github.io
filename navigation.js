@@ -1,22 +1,15 @@
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const preferenceKey = 'portfolio-smooth-scrolling';
+const preferenceKey = 'portfolio-section-scroll';
 const motionControl = document.querySelector('#scroll-animation');
 const header = document.querySelector('.site-header');
+const viewport = document.scrollingElement;
 const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
-let preference;
+let enabled = true;
 let animationFrame = 0;
 
 try {
-  preference = window.localStorage.getItem(preferenceKey);
+  enabled = window.localStorage.getItem(preferenceKey) !== 'off';
 } catch {
-  // The system setting is still available when local storage is disabled.
-}
-
-function animationEnabled() {
-  if (preference === 'on' || preference === 'off') {
-    return preference === 'on';
-  }
-  return !reducedMotion.matches;
+  // The control still works during this visit if storage is disabled.
 }
 
 function cancelAnimation() {
@@ -25,7 +18,6 @@ function cancelAnimation() {
 }
 
 function updateMotionControl() {
-  const enabled = animationEnabled();
   motionControl.setAttribute('aria-pressed', String(enabled));
   motionControl.querySelector('span').textContent = enabled ? 'On' : 'Off';
   if (!enabled) {
@@ -33,38 +25,39 @@ function updateMotionControl() {
   }
 }
 
+document.documentElement.classList.add('section-scroll-js');
 motionControl.hidden = false;
 updateMotionControl();
 motionControl.addEventListener('click', () => {
-  preference = animationEnabled() ? 'off' : 'on';
+  enabled = !enabled;
   try {
-    window.localStorage.setItem(preferenceKey, preference);
+    window.localStorage.setItem(preferenceKey, enabled ? 'on' : 'off');
   } catch {
     // The choice still applies while the page is open.
   }
   updateMotionControl();
 });
-reducedMotion.addEventListener('change', updateMotionControl);
 
-function scrollToSection(target) {
+function scrollToSection(target, start) {
   cancelAnimation();
-  const start = window.scrollY;
-  const bottom = document.documentElement.scrollHeight - window.innerHeight;
-  const sectionTop = start + target.getBoundingClientRect().top - header.offsetHeight;
+  const bottom = viewport.scrollHeight - viewport.clientHeight;
+  const sectionTop = viewport.scrollTop + target.getBoundingClientRect().top - header.offsetHeight;
   const end = Math.max(0, Math.min(bottom, sectionTop));
 
-  const setPosition = (top) => window.scrollTo({ top, behavior: 'instant' });
-  if (!animationEnabled() || Math.abs(end - start) < 2) {
-    setPosition(end);
+  if (!enabled || Math.abs(end - start) < 2) {
+    viewport.scrollTop = end;
     return;
   }
 
-  const duration = Math.min(900, 450 + Math.abs(end - start) * 0.13);
+  if (viewport.scrollTop !== start) {
+    viewport.scrollTop = start;
+  }
+  const duration = Math.min(1250, 650 + Math.abs(end - start) * 0.1);
   const started = window.performance.now();
   function animate(now) {
-    const progress = Math.min(1, (now - started) / duration);
-    const eased = 1 - (1 - progress) ** 3;
-    setPosition(start + (end - start) * eased);
+    const progress = Math.max(0, Math.min(1, (now - started) / duration));
+    const eased = (1 - Math.cos(Math.PI * progress)) / 2;
+    viewport.scrollTop = start + (end - start) * eased;
     animationFrame = progress < 1 ? window.requestAnimationFrame(animate) : 0;
   }
   animationFrame = window.requestAnimationFrame(animate);
@@ -83,6 +76,7 @@ document.addEventListener('click', (event) => {
   }
 
   event.preventDefault();
+  const start = viewport.scrollTop;
   if (window.location.hash !== link.hash) {
     window.history.pushState(null, '', link.hash);
   }
@@ -91,7 +85,7 @@ document.addEventListener('click', (event) => {
     target.tabIndex = -1;
   }
   target.focus({ preventScroll: true });
-  scrollToSection(target);
+  scrollToSection(target, start);
 });
 
 window.addEventListener('wheel', cancelAnimation, { passive: true });
