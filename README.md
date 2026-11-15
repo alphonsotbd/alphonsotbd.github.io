@@ -1,6 +1,6 @@
 # Alphonso Zhuang Jie — Portfolio
 
-A public AI and data engineering portfolio featuring three projects in IoT telemetry, analytics, and environmental monitoring.
+A public AI and data engineering portfolio featuring academic work in data engineering, analytics, machine learning, cloud computing and IoT.
 
 Live site: https://alphonsotbd.github.io/
 
