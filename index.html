@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://alphonsotbd.github.io/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=20261115-evidence">
+    <link rel="stylesheet" href="/styles.css?v=20261115-project-media">
 
     <script src="/navigation.js?v=20261115-6" defer></script>
 
@@ -207,6 +207,15 @@
             <figcaption>Sound on · End-to-end system demonstration · 01:08</figcaption>
           </figure>
         </div>
+        <details class="project-artifact siteguard-slide" id="siteguard-slide">
+          <summary>View system architecture slide</summary>
+          <figure class="project-proof">
+            <a href="/assets/siteguard-architecture.webp" target="_blank" rel="noreferrer" aria-label="SiteGuard system architecture slide from wearable to dashboard and Telegram alert (opens full-size image)">
+              <img src="/assets/siteguard-architecture.webp" width="1500" height="844" loading="lazy" decoding="async" alt="SiteGuard system architecture slide from wearable to dashboard and Telegram alert">
+            </a>
+            <figcaption>System architecture from the SiteGuard team presentation.</figcaption>
+          </figure>
+        </details>
       </article>
 
       <article class="project project-tuition" id="tuition-analytics">
@@ -346,17 +355,53 @@
             <p class="project-module">EG2A16 · Cloud Computing</p>
             <h3>AutoParts SG</h3>
             <p>I deployed a nine-product Flask catalogue on AWS. It reads product details from RDS MySQL and displays images stored in S3.</p>
-            <a href="#autoparts-architecture">View AWS architecture <span aria-hidden="true">↓</span></a>
+            <a href="#autoparts-architecture">View catalogue and architecture <span aria-hidden="true">↓</span></a>
           </article>
           <article class="additional-card" id="voice-classification">
             <p class="project-module">EG2A11 · Applied Machine Learning</p>
             <h3>Parkinson’s Voice Classification</h3>
             <p>I compared Decision Tree and Random Forest models, keeping recordings from the same person together to avoid leakage. The tuned Random Forest scored 0.912 ROC-AUC on 49 recordings from eight held-out participants in this coursework experiment.</p>
+            <details class="project-artifact">
+              <summary>View model results</summary>
+              <figure class="project-proof">
+                <a href="/assets/park-roc.webp" target="_blank" rel="noreferrer" aria-label="ROC comparison of the Decision Tree and Random Forest on held-out participants (opens full-size image)">
+                  <img src="/assets/park-roc.webp" width="712" height="718" loading="lazy" decoding="async" alt="ROC comparison of the Decision Tree and Random Forest on held-out participants">
+                </a>
+                <figcaption>ROC curves for the two tuned models on the held-out participants.</figcaption>
+              </figure>
+              <figure class="project-proof">
+                <a href="/assets/park-random-forest-confusion.webp" target="_blank" rel="noreferrer" aria-label="Tuned Random Forest confusion matrix and ROC curve (opens full-size image)">
+                  <img src="/assets/park-random-forest-confusion.webp" width="1287" height="542" loading="lazy" decoding="async" alt="Tuned Random Forest confusion matrix and ROC curve">
+                </a>
+                <figcaption>Random Forest predictions at the 0.5 threshold, including six false positives.</figcaption>
+              </figure>
+            </details>
           </article>
           <article class="additional-card" id="low-carb-analysis">
             <p class="project-module">EG2A12 · Data Analytics</p>
             <h3>Low-Carb Market Opportunity</h3>
             <p>I compared manufacturer sales, online searches and social posts to assess demand for low-carb products and recommend growth opportunities.</p>
+            <details class="project-artifact">
+              <summary>View three presentation slides</summary>
+              <figure class="project-proof">
+                <a href="/assets/low-carb-1.webp" target="_blank" rel="noreferrer" aria-label="Slide comparing monthly trends in sales, social posts and Google searches (opens full-size image)">
+                  <img src="/assets/low-carb-1.webp" width="1500" height="844" loading="lazy" decoding="async" alt="Slide comparing monthly trends in sales, social posts and Google searches">
+                </a>
+                <figcaption>Monthly trends in sales, social posts and Google searches.</figcaption>
+              </figure>
+              <figure class="project-proof">
+                <a href="/assets/low-carb-2.webp" target="_blank" rel="noreferrer" aria-label="Slide with a correlation heatmap for low-carb sales, social posts and searches (opens full-size image)">
+                  <img src="/assets/low-carb-2.webp" width="1500" height="844" loading="lazy" decoding="async" alt="Slide with a correlation heatmap for low-carb sales, social posts and searches">
+                </a>
+                <figcaption>Correlation between sales and the two measures of consumer interest.</figcaption>
+              </figure>
+              <figure class="project-proof">
+                <a href="/assets/low-carb-3.webp" target="_blank" rel="noreferrer" aria-label="Slide with the opportunity scoring method and recommended themes (opens full-size image)">
+                  <img src="/assets/low-carb-3.webp" width="1500" height="844" loading="lazy" decoding="async" alt="Slide with the opportunity scoring method and recommended themes">
+                </a>
+                <figcaption>Opportunity scoring method and recommended themes.</figcaption>
+              </figure>
+            </details>
           </article>
           <article class="additional-card">
             <p class="project-module">IoT prototyping</p>
@@ -370,7 +415,28 @@
             <p>I reworked a keychain design into a functional bottle opener, adjusting its shape for leverage and strength before printing it.</p>
           </article>
           <section class="additional-card architecture-card" id="autoparts-architecture" aria-labelledby="architecture-title">
-            <h3 id="architecture-title">AutoParts SG architecture</h3>
+            <h3 id="architecture-title">AutoParts SG catalogue and architecture</h3>
+            <figure class="project-proof">
+              <a href="/assets/autoparts-catalogue.webp" target="_blank" rel="noreferrer" aria-label="AutoParts SG catalogue with search, sorting and the first three product cards (opens full-size image)">
+                <img src="/assets/autoparts-catalogue.webp" width="1450" height="832" loading="lazy" decoding="async" alt="AutoParts SG catalogue with search, sorting and the first three product cards">
+              </a>
+              <figcaption>The deployed catalogue, showing search, sorting and the first three products.</figcaption>
+            </figure>
+            <details class="project-artifact">
+              <summary>View the other six products</summary>
+              <figure class="project-proof">
+                <a href="/assets/autoparts-products-4-6.webp" target="_blank" rel="noreferrer" aria-label="AutoParts SG catalogue cards for brake disc, brake pad and crankshaft (opens full-size image)">
+                  <img src="/assets/autoparts-products-4-6.webp" width="1450" height="457" loading="lazy" decoding="async" alt="AutoParts SG catalogue cards for brake disc, brake pad and crankshaft">
+                </a>
+                <figcaption>Brake disc, brake pad and crankshaft.</figcaption>
+              </figure>
+              <figure class="project-proof">
+                <a href="/assets/autoparts-products-7-9.webp" target="_blank" rel="noreferrer" aria-label="AutoParts SG catalogue cards for shock absorber, spark plug and strut (opens full-size image)">
+                  <img src="/assets/autoparts-products-7-9.webp" width="1450" height="540" loading="lazy" decoding="async" alt="AutoParts SG catalogue cards for shock absorber, spark plug and strut">
+                </a>
+                <figcaption>Shock absorber, spark plug and strut.</figcaption>
+              </figure>
+            </details>
             <figure>
               <div class="architecture-flow">
                 <div class="architecture-node"><strong>Browser</strong><span>Requests the catalogue</span></div>
@@ -386,6 +452,17 @@
               </div>
               <figcaption>RDS keeps product details available for SQL queries. Storing images in S3 lets the browser download those files directly.</figcaption>
             </figure>
+            <details class="project-artifact">
+              <summary>View the Jinja template excerpt</summary>
+              <p>These lines from my original catalogue template display the name, price and description for each product.</p>
+              <pre><code>&lt;div class="card-body"&gt;
+    &lt;h4 class="card-title"&gt;
+        &lt;a href="#"&gt;{{ product['product_name'] }}&lt;/a&gt;
+    &lt;/h4&gt;
+    &lt;h5&gt;${{ product['product_price'] }}&lt;/h5&gt;
+    &lt;p class="card-text"&gt;{{ product['product_description'] }}&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
           </section>
         </div>
       </section>
@@ -488,7 +565,7 @@
           <div class="volunteer-note credentials" id="credentials">
             <h3>Credentials</h3>
             <p><strong>Advanced SQL</strong> · Kaggle certificate of completion · November 2026</p>
-            <a href="https://www.kaggle.com/learn/advanced-sql" target="_blank" rel="noreferrer">View the Kaggle course <span aria-hidden="true">↗</span></a>
+            <a href="https://www.kaggle.com/learn/certification/alphonsozhuangjie/advanced-sql" target="_blank" rel="noreferrer">View the Kaggle certificate <span aria-hidden="true">↗</span></a>
           </div>
           <div class="about-actions">
             <a class="button about-button" href="https://sg.linkedin.com/in/alphonso-zhuang-a5a380297" target="_blank" rel="noreferrer">

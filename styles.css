@@ -406,3 +406,16 @@ footer a:hover { color: var(--cyan); }
   .architecture-node { width: auto; }
   .architecture-arrow { align-self: center; transform: rotate(90deg); }
 }
+
+.project-artifact { margin-top: 16px; min-width: 0; }
+.project-artifact summary { color: var(--blue); cursor: pointer; font-weight: 750; }
+.project-artifact summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-artifact[open] summary { margin-bottom: 12px; }
+.siteguard-slide summary { color: var(--cyan); }
+.siteguard-slide { max-width: 760px; }
+.project-proof { margin: 14px 0 0; }
+.project-proof a, .additional-card .project-proof a { display: block; margin: 0; }
+.project-proof img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.project-proof figcaption, .architecture-card .project-proof figcaption { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.siteguard-slide figcaption { color: #aebbd0; }
+.project-artifact pre { margin: 12px 0 0; overflow-x: auto; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-size: 13px; line-height: 1.5; }
