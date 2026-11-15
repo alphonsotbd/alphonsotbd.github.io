@@ -1,42 +1,14 @@
-const preferenceKey = 'portfolio-section-scroll';
-const motionControl = document.querySelector('#scroll-animation');
 const header = document.querySelector('.site-header');
 const viewport = document.scrollingElement;
 const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
-let enabled = true;
 let animationFrame = 0;
-
-try {
-  enabled = window.localStorage.getItem(preferenceKey) !== 'off';
-} catch {
-  // The control still works during this visit if storage is disabled.
-}
 
 function cancelAnimation() {
   window.cancelAnimationFrame(animationFrame);
   animationFrame = 0;
 }
 
-function updateMotionControl() {
-  motionControl.setAttribute('aria-pressed', String(enabled));
-  motionControl.querySelector('span').textContent = enabled ? 'On' : 'Off';
-  if (!enabled) {
-    cancelAnimation();
-  }
-}
-
 document.documentElement.classList.add('section-scroll-js');
-motionControl.hidden = false;
-updateMotionControl();
-motionControl.addEventListener('click', () => {
-  enabled = !enabled;
-  try {
-    window.localStorage.setItem(preferenceKey, enabled ? 'on' : 'off');
-  } catch {
-    // The choice still applies while the page is open.
-  }
-  updateMotionControl();
-});
 
 function scrollToSection(target, start) {
   cancelAnimation();
@@ -44,7 +16,7 @@ function scrollToSection(target, start) {
   const sectionTop = viewport.scrollTop + target.getBoundingClientRect().top - header.offsetHeight;
   const end = Math.max(0, Math.min(bottom, sectionTop));
 
-  if (!enabled || Math.abs(end - start) < 2) {
+  if (Math.abs(end - start) < 2) {
     viewport.scrollTop = end;
     return;
   }
@@ -95,24 +67,4 @@ window.addEventListener('keydown', (event) => {
   if (scrollKeys.has(event.key)) {
     cancelAnimation();
   }
-});
-
-const orbitControl = document.querySelector('#orbit-animation');
-const orbitVisual = document.querySelector('#data-insight-orbits');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-let orbitOverride;
-
-function updateOrbitControl() {
-  const playing = orbitOverride ?? !reducedMotion.matches;
-  orbitVisual.dataset.orbitMotion = playing ? 'playing' : 'paused';
-  orbitControl.setAttribute('aria-pressed', String(playing));
-  orbitControl.querySelector('span').textContent = playing ? 'On' : 'Off';
-}
-
-orbitControl.hidden = false;
-updateOrbitControl();
-reducedMotion.addEventListener('change', updateOrbitControl);
-orbitControl.addEventListener('click', () => {
-  orbitOverride = orbitVisual.dataset.orbitMotion !== 'playing';
-  updateOrbitControl();
 });
