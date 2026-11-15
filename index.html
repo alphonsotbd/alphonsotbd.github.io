@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://alphonsotbd.github.io/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=20261115-6">
+    <link rel="stylesheet" href="/styles.css?v=20261115-evidence">
 
     <script src="/navigation.js?v=20261115-6" defer></script>
 
@@ -179,6 +179,14 @@
               <div><dt>2</dt><dd>live dashboards for operations and trends</dd></div>
               <div><dt>0</dt><dd>false impacts in the near-miss test set</dd></div>
             </dl>
+            <section class="test-evidence" aria-labelledby="siteguard-test">
+              <h4 id="siteguard-test">Wearable detection test</h4>
+              <p>The team staged 10 impacts and 10 near misses to check whether the wearable classified each event correctly.</p>
+              <dl>
+                <div><dt>Expected</dt><dd>Detect and classify each staged event.</dd></div>
+                <div><dt>Observed</dt><dd>Correctly detected 8 of 10 impacts and 2 of 10 near misses.</dd></div>
+              </dl>
+            </section>
           </div>
           <div class="phone-proof">
             <img src="/projects/siteguard-telegram.jpg" width="917" height="2048" loading="lazy" decoding="async" alt="SiteGuard Telegram bot sending multilingual impact alerts to a supervisor's phone">
@@ -337,7 +345,8 @@
           <article class="additional-card" id="autoparts-sg">
             <p class="project-module">EG2A16 · Cloud Computing</p>
             <h3>AutoParts SG</h3>
-            <p>I deployed a nine-product Flask catalogue on AWS. The EC2 application reads product details from RDS MySQL and loads product images from S3.</p>
+            <p>I deployed a nine-product Flask catalogue on AWS. It reads product details from RDS MySQL and displays images stored in S3.</p>
+            <a href="#autoparts-architecture">View AWS architecture <span aria-hidden="true">↓</span></a>
           </article>
           <article class="additional-card" id="voice-classification">
             <p class="project-module">EG2A11 · Applied Machine Learning</p>
@@ -360,6 +369,24 @@
             <h3>3D-Printed Bottle Opener</h3>
             <p>I reworked a keychain design into a functional bottle opener, adjusting its shape for leverage and strength before printing it.</p>
           </article>
+          <section class="additional-card architecture-card" id="autoparts-architecture" aria-labelledby="architecture-title">
+            <h3 id="architecture-title">AutoParts SG architecture</h3>
+            <figure>
+              <div class="architecture-flow">
+                <div class="architecture-node"><strong>Browser</strong><span>Requests the catalogue</span></div>
+                <span class="architecture-arrow" aria-hidden="true">→</span>
+                <div class="architecture-node"><strong>AWS EC2</strong><span>Serves the Flask app</span></div>
+                <span class="architecture-arrow" aria-hidden="true">→</span>
+                <div class="architecture-node"><strong>Amazon RDS MySQL</strong><span>Stores product records</span></div>
+              </div>
+              <div class="architecture-flow">
+                <div class="architecture-node"><strong>Browser</strong><span>Requests product images</span></div>
+                <span class="architecture-arrow" aria-hidden="true">→</span>
+                <div class="architecture-node"><strong>Amazon S3</strong><span>Serves image files</span></div>
+              </div>
+              <figcaption>RDS keeps product details available for SQL queries. Storing images in S3 lets the browser download those files directly.</figcaption>
+            </figure>
+          </section>
         </div>
       </section>
 
@@ -457,6 +484,11 @@
           <div class="volunteer-note" id="nyp-open-house">
             <h3>Nanyang Polytechnic Open House</h3>
             <p>I staffed the AI &amp; Data Engineering booth and explained what students can expect from the start of the diploma through graduation and the careers it can lead to.</p>
+          </div>
+          <div class="volunteer-note credentials" id="credentials">
+            <h3>Credentials</h3>
+            <p><strong>Advanced SQL</strong> · Kaggle certificate of completion · November 2026</p>
+            <a href="https://www.kaggle.com/learn/advanced-sql" target="_blank" rel="noreferrer">View the Kaggle course <span aria-hidden="true">↗</span></a>
           </div>
           <div class="about-actions">
             <a class="button about-button" href="https://sg.linkedin.com/in/alphonso-zhuang-a5a380297" target="_blank" rel="noreferrer">

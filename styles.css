@@ -373,6 +373,20 @@ footer a:hover { color: var(--cyan); }
 .volunteer-note { margin-top: 28px; }
 .volunteer-note h3 { margin: 0; font-size: 20px; }
 .volunteer-note p { margin-top: 8px; }
+.credentials a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.test-evidence { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .2); }
+.test-evidence h4 { margin: 0 0 9px; font-size: 20px; }
+.test-evidence dl { display: grid; gap: 10px; margin: 14px 0 0; }
+.test-evidence dl > div { display: grid; grid-template-columns: 84px 1fr; gap: 12px; }
+.test-evidence dt { color: var(--cyan); font-weight: 700; }
+.test-evidence dd { margin: 0; color: #aebbd0; line-height: 1.45; }
+.architecture-card { grid-column: 1 / -1; }
+.architecture-card figure { margin: 20px 0 0; }
+.architecture-flow { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.architecture-node { display: grid; gap: 4px; width: min(25%, 230px); padding: 14px 16px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+.architecture-node span, .architecture-card figcaption { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.architecture-arrow { color: var(--blue); font-size: 20px; font-weight: 700; }
+.architecture-card figcaption { margin-top: 16px; }
 .dataset-method { padding: clamp(24px, 5vw, 64px); }
 .dataset-method h3 { margin: 0 0 18px; font-size: clamp(28px, 3vw, 42px); line-height: 1.05; letter-spacing: -.04em; }
 .dataset-method ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
@@ -388,4 +402,7 @@ footer a:hover { color: var(--cyan); }
   .additional-work { padding: 68px 22px; }
   .additional-grid { grid-template-columns: 1fr; }
   .additional-card { padding: 23px; }
+  .architecture-flow { flex-direction: column; align-items: stretch; gap: 4px; }
+  .architecture-node { width: auto; }
+  .architecture-arrow { align-self: center; transform: rotate(90deg); }
 }
