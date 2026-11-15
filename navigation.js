@@ -96,3 +96,23 @@ window.addEventListener('keydown', (event) => {
     cancelAnimation();
   }
 });
+
+const orbitControl = document.querySelector('#orbit-animation');
+const orbitVisual = document.querySelector('#data-insight-orbits');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let orbitOverride;
+
+function updateOrbitControl() {
+  const playing = orbitOverride ?? !reducedMotion.matches;
+  orbitVisual.dataset.orbitMotion = playing ? 'playing' : 'paused';
+  orbitControl.setAttribute('aria-pressed', String(playing));
+  orbitControl.querySelector('span').textContent = playing ? 'On' : 'Off';
+}
+
+orbitControl.hidden = false;
+updateOrbitControl();
+reducedMotion.addEventListener('change', updateOrbitControl);
+orbitControl.addEventListener('click', () => {
+  orbitOverride = orbitVisual.dataset.orbitMotion !== 'playing';
+  updateOrbitControl();
+});

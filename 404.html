@@ -11,9 +11,9 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://alphonsotbd.github.io/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=20261115-3">
+    <link rel="stylesheet" href="/styles.css?v=20261115-4">
 
-    <script src="/navigation.js?v=20261115-3" defer></script>
+    <script src="/navigation.js?v=20261115-4" defer></script>
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alphonsotbd.github.io/">
@@ -66,13 +66,20 @@
           <button class="motion-control" id="scroll-animation" type="button" aria-pressed="false" hidden>
             Smooth scrolling <span aria-hidden="true">Off</span>
           </button>
+          <button class="motion-control" id="orbit-animation" type="button" aria-controls="data-insight-orbits" aria-pressed="false" hidden>
+            Orbit animation <span aria-hidden="true">Off</span>
+          </button>
         </div>
-        <div class="hero-visual" aria-label="Data pipeline illustration">
-          <div class="signal signal-a"></div>
-          <div class="signal signal-b"></div>
-          <div class="signal signal-c"></div>
-          <div class="orbit orbit-one"><span>VALIDATE</span></div>
-          <div class="orbit orbit-two"><span>TRANSFORM</span></div>
+        <div class="hero-visual" id="data-insight-orbits" aria-label="Data pipeline illustration">
+          <div class="orbit orbit-one">
+            <span class="orbit-label">VALIDATE</span>
+            <span class="signal signal-a" aria-hidden="true"></span>
+          </div>
+          <div class="orbit orbit-two">
+            <span class="orbit-label">TRANSFORM</span>
+            <span class="signal signal-b" aria-hidden="true"></span>
+            <span class="signal signal-c" aria-hidden="true"></span>
+          </div>
           <div class="core"><strong>DATA</strong><small>→ INSIGHT</small></div>
         </div>
         <div class="hero-meta">
@@ -449,6 +456,10 @@
           <div class="volunteer-note" id="volunteering">
             <h3>Youth Corps Singapore</h3>
             <p>I volunteered at a social outing with persons with disabilities and spent time getting to know participants through conversation.</p>
+          </div>
+          <div class="volunteer-note" id="nyp-open-house">
+            <h3>Nanyang Polytechnic Open House</h3>
+            <p>I staffed the AI &amp; Data Engineering booth and explained what the diploma covers and what students can expect from the start of the course through graduation.</p>
           </div>
           <div class="about-actions">
             <a class="button about-button" href="https://sg.linkedin.com/in/alphonso-zhuang-a5a380297" target="_blank" rel="noreferrer">
