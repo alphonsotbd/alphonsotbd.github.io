@@ -357,10 +357,10 @@ footer a:hover { color: var(--cyan); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .orbit { animation-play-state: paused; }
+  .orbit { animation-name: none; }
 }
-.hero-visual[data-orbit-motion="paused"] .orbit { animation-play-state: paused; }
-.hero-visual[data-orbit-motion="playing"] .orbit { animation-play-state: running; }
+.hero-visual[data-orbit-motion="paused"] .orbit { animation-name: none; }
+.hero-visual[data-orbit-motion="playing"] .orbit { animation-name: spin; }
 
 .work-jump { display: inline-block; margin-top: 24px; color: var(--blue); font-weight: 750; }
 .work-jump:hover, .additional-card a:hover { text-decoration: underline; }
